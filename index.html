@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Converter</title>
+	<meta http-equiv="refresh" content="">
+	<style type="text/css">
+		body{
+			background-color: #101820FF;
+			padding: 0px;
+			margin: 0px;
+		}
+		#convert{
+			width: 60%;
+			margin: 170px auto;
+		}
+		h1{
+			text-align: center;
+			border-bottom: 2px solid black;
+			border-color: #ccd6f6;;
+			padding: 10px;
+			color: #64ffda;
+		}
+		#container{
+			background-color: #F2AA4CFF;
+			text-align: center;
+			padding: 30px;
+			border-radius: 20px; 
+		}
+		.inputbox{
+			display: inline-block;
+		}
+		.inputbox label{
+			font-size: 20px;
+		}
+		.infar{
+			text-align: center;
+			padding: 5px 10px;
+			margin: 10px;
+			font-size: 20px;
+			width: 250px;
+		}
+	</style>
+</head>
+<body>
+	<div id="convert">
+	<h1>Temperature converter</h1>
+	<div id="container">
+		<div class="inputbox" id="far">
+			<label>Fahrenheit:</label><br>
+			<input type="number" value="32" id="fahrenheit" class="infar">
+		</div>
+		<div class="inputbox" id="cel">
+			<label>Celsius:</label><br>
+			<input type="number" value="0" id="celsius" class="infar">
+		</div>
+	</div>
+	</div>
+
+	<script>
+        let celsius = document.getElementById('celsius');
+        let fahrenheit = document.getElementById('fahrenheit');
+        
+        celsius.oninput = function () {
+            let f = (parseFloat(celsius.value) * 9) / 5 + 32;
+            fahrenheit.value = parseFloat(f.toFixed(2));
+
+            let k = (parseFloat(celsius.value) + 273.15);
+            kelvin.value = parseFloat(k.toFixed(2));
+            let c = (parseFloat(celsius.value));
+            celCheck(c);
+        }
+        fahrenheit.oninput = function () {
+            let c = ((parseFloat(
+                fahrenheit.value) - 32) * 5) / 9;
+            celsius.value = parseFloat(c.toFixed(2));
+            celCheck(c);
+
+            let k = (parseFloat(
+                fahrenheit.value) - 32) * 5 / 9 + 273.15;
+            kelvin.value = parseFloat(k.toFixed(2));
+        }     
+    </script>
+</body>
+</html>
